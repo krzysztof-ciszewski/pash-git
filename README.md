@@ -13,7 +13,7 @@ Simple wrapper for [dylanaraps/pash](https://github.com/dylanaraps/pash) adding 
 ## Configuration
 
 The configuration is done through environemnt variables.
-The script uses `$PASH_DIR` that falls back to `$XDG_DATA_HOME/pash` that falls back to `$HOME/.local/share/pash as the password store location.
+The script uses `$PASH_DIR` that falls back to `$XDG_DATA_HOME/pash` that falls back to `$HOME/.local/share/pash` as the password store location.
 You can set the pash executable path in the `$PASH_BIN` varibale. By default it assumes it's on the `$PATH`
 
 ## Usage
