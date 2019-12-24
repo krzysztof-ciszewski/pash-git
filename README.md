@@ -8,7 +8,7 @@ Simple wrapper for [dylanaraps/pash](https://github.com/dylanaraps/pash) adding 
 ## Dependencies
 
 - `git`
-- `[pash](https://github.com/dylanaraps/pash)`
+- [`pash`](https://github.com/dylanaraps/pash)
 
 ## Configuration
 
