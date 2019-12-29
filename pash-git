@@ -19,17 +19,28 @@ main() {
 
     case $1 in
         a*)
-            command $PASH_BIN "$@" && git_commit "$2" "Added $2 to the store"
-            ;;
-        d*)
-            command $PASH_BIN "$@" && git_commit "$2" "Removed $2 from the store"
-            ;;
-        g*) 
-            shift
-            git -C "$PASSWORD_STORE" "$@"
-            ;;
-        *)  command $PASH_BIN "$@" ;;
-    esac
+            command $PASH_BIN "$@" && {
+                for arg in "$@"
+                do
+                    shift
+                    case $arg in
+                        -*)
+                            continue
+                            ;;
+                    esac
+                    set -- "$@" "$arg"
+                done
+            } && git_commit "$2" "Added $2 to the store"
+        ;;
+    d*)
+        command $PASH_BIN "$@" && git_commit "$2" "Removed $2 from the store"
+        ;;
+    g*)
+        shift
+        git -C "$PASSWORD_STORE" "$@"
+        ;;
+    *)  command $PASH_BIN "$@" ;;
+esac
 }
 
 set +x -f
